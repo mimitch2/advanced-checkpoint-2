@@ -1,6 +1,6 @@
-import ListUsers from "../components/ListUsers";
+import UserDetail from "../components/UserDetail";
 import { connect } from "react-redux";
-import {deleteUser, showUser} from "../actions";
+import {showUser} from "../actions";
 
 function mapStateToProps(state) {
   return {
@@ -10,17 +10,12 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    deleteUser: (id) => {      
-      const action = deleteUser(id);
-      dispatch(action);
-    },
     showUser: (id) => {      
       const action = showUser(id);
       dispatch(action);
     },
-
   };
 }
   
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListUsers);
+export default connect(mapStateToProps, mapDispatchToProps)(UserDetail);

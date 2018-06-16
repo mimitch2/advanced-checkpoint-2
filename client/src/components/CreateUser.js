@@ -9,7 +9,7 @@ class CreateUser extends Component {
       firstName: "",
       lastName: "",
       email: "",
-      gender: "male"
+      gender: "Male"
     };
   }
 
@@ -34,7 +34,7 @@ class CreateUser extends Component {
       firstName: "",
       lastName: "",
       email: "",
-      gender: "male"
+      gender: "Male"
     });
     
   }
@@ -53,8 +53,8 @@ class CreateUser extends Component {
         <input type="email" id="email" value={this.state.email} onChange={(e) => this.handleChange(e)} />
         <label htmlFor="gender">Gender</label>
         <select id="gender" value={this.state.gender} onChange={(e) => this.handleChange(e)} >
-          <option value="male">Male</option>
-          <option value="female">Female</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
         </select>
         <button id="submit" onClick={this.handleSubmit}>Submit</button>
         {/* </form> */}

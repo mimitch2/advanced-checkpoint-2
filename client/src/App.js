@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import "./App.css";
 import CreateUser from "./containers/CreateUserContainer";
 import ListUsers from "./containers/ListUsersContainer";
+import UserDetail from "./containers/UserDetailContainer.js";
 import PropTypes from "prop-types";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 class App extends Component {
-  // constructor() {
-  //   super();
-  // }
+ 
 
   componentDidMount() {
     this.props.loadUsers();
@@ -21,11 +21,18 @@ class App extends Component {
   
   render() {
     return (
-      <div className="create-user-div">
-        <CreateUser />
-        <ListUsers />
-
-      </div>
+      <BrowserRouter>
+    
+        <div className="create-user-div">
+          <Switch>
+            <Route path="/user/:id" component={UserDetail} />
+   
+         
+          </Switch>
+          <CreateUser />
+          <ListUsers />
+        </div>
+      </BrowserRouter>
     );
   }
 }
