@@ -2,13 +2,8 @@
 
 
 export function loadUsers() {
-  // console.log("loadUsers");
-  
   return function (dispatch) {
-    dispatch({
-      type: "LOAD_USERS"
-    });
-    fetch("/users").then( (response) => {
+    fetch("http://localhost:3001/users").then( (response) => {
       return response.json();
     }).then((users) => {
       dispatch(usersLoaded(users));
@@ -17,6 +12,8 @@ export function loadUsers() {
 }
       
 export function usersLoaded(users) {
+  // console.log("usersLoaded");
+  
   return {
     type: "USERS_LOADED",
     value: users
@@ -44,11 +41,11 @@ export function usersLoaded(users) {
 //   };
 // }
   
+
 export function createUser(user) {
-  console.log(user);
-  
   return function (dispatch) {
-    fetch("/user", {
+    console.log(JSON.stringify(user), "actions CreateUser");
+    fetch("http://localhost:3001/user", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(user)
@@ -58,14 +55,14 @@ export function createUser(user) {
   };
 }
       
-// export function removeMyMovie(id) {
-//   return function (dispatch) {
-//     fetch("/movies/" + id, {
-//       method: "DELETE"
-//     }).then(res => res.json())
-//         .then(() => {
-//           dispatch(loadMyMovieList());
-//         });
-//   };
-// }
+export function deleteUser(id) {
+  return function (dispatch) {
+    fetch("/user/" + id, {
+      method: "DELETE"
+    }).then(res => res.json())
+        .then(() => {
+          dispatch(loadUsers());
+        });
+  };
+}
   

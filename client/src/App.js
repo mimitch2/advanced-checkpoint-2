@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import "./App.css";
 import CreateUser from "./containers/CreateUserContainer";
 import ListUsers from "./containers/ListUsersContainer";
-
+import PropTypes from "prop-types";
 
 class App extends Component {
-  constructor() {
-    super();
-  }
+  // constructor() {
+  //   super();
+  // }
 
   componentDidMount() {
     this.props.loadUsers();
@@ -29,6 +29,12 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  loadUsers: PropTypes.func,
+};
+
 export default (App);
+
 
 

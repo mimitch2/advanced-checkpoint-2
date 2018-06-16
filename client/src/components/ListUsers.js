@@ -1,14 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+const handleRemove = (e) => {
+  console.log(e.target.id);
+
+};
+
+
+
 const ListUsers = (props) => {
+  console.log(props);
   
   return (
     <div>
       {props.users.map((user, index) => {
         return (
           <div key={index} className="users-list-card">
-            <h3 className="user-name">{user.first_name} {user.last_name}</h3>
+            <h3 className="user-name">{user.first_name} {user.last_name} <i className="fas fa-times" style={{color: "red", cursor: "pointer"}} onClick={(e) => handleRemove(e)} id={user.id} /></h3>
             <p className="user-email">{user.email}</p>
             <p className="user-gender">{user.gender}</p>
             <p className="user-ip">{user.ip_address}</p>

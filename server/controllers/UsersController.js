@@ -23,8 +23,6 @@ module.exports.show = function show(req, res) {
 };
 
 module.exports.create = function create(req, res) {
-  console.log(req.body);
-  
   const newUser = new User(
     req.body
   );

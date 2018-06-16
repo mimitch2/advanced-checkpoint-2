@@ -64,7 +64,7 @@ class CreateUser extends Component {
 }
 
 CreateUser.propTypes = {
-  prop: PropTypes.array,
+  users: PropTypes.array,
 };
 
 export default CreateUser;

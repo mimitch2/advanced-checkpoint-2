@@ -1,6 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
 const app = express();
+const bodyParser = require("body-parser");
+app.use(bodyParser.json());
 
 mongoose.set("debug", true);
 mongoose.Promise = global.Promise;
