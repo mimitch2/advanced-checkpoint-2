@@ -1,14 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const handleRemove = (e) => {
-  console.log(e.target.id);
 
-};
 
 
 
 const ListUsers = (props) => {
+  const handleRemove = (e) => {
+    props.deleteUser(e.target.id);
+    console.log(e.target.id);
+  
+  };
   console.log(props);
   
   return (
