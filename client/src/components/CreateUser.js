@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "../App.css";
+import {createUser} from "../actions";
 
 class CreateUser extends Component {
   constructor() {
@@ -19,6 +20,13 @@ class CreateUser extends Component {
 
   handleSubmit = () => {
     // console.log("submit");
+    createUser({
+      first_name: this.state.firstName,
+      last_name: this.state.lastName,
+      email: this.state.email,
+      gender: this.state.gender,
+      ip_address: "100.100.10.10"
+    });
     this.setState({
       firstName: "",
       lastName: "",

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
-import CreateUser from "./components/CreateUser";
+import CreateUser from "./containers/CreateUserContainer";
+import ListUsers from "./containers/ListUsersContainer";
 
 class App extends Component {
   constructor() {
@@ -15,6 +16,8 @@ class App extends Component {
     return (
       <div className="create-user-div">
         <CreateUser />
+        <ListUsers />
+
       </div>
     );
   }
