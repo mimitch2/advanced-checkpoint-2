@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "../App.css";
-import {createUser} from "../actions";
 
 class CreateUser extends Component {
   constructor() {
@@ -19,8 +18,12 @@ class CreateUser extends Component {
   }
 
   handleSubmit = () => {
-    // console.log("submit");
-    createUser({
+    // console.log(this.props.users[this.props.users.length - 1]);
+    
+    const newId = this.props.users[this.props.users.length - 1].id;
+
+    this.props.createUser({
+      id: Number(newId) + 1,
       first_name: this.state.firstName,
       last_name: this.state.lastName,
       email: this.state.email,
@@ -37,6 +40,8 @@ class CreateUser extends Component {
   }
 
   render() {
+    // console.log(this.props.users);
+    
     return (
       <div className="create-user-main">
         {/* <form action=""> */}

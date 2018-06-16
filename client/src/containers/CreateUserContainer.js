@@ -2,22 +2,19 @@ import CreateUser from "../components/CreateUser";
 import { connect } from "react-redux";
 import {createUser} from "../actions";
 
-// function mapStateToProps(state) {
-//   return {
-//     // searchResults: state.searchResults,
-//     // myMovieList: state.myMovieList
-//   };
-// }
+function mapStateToProps(state) {
+  return {
+    users: state.users
+  };
+}
   
 function mapDispatchToProps(dispatch) {
   return {
-    createUser: (user) => {
-      console.log(user);
-      
+    createUser: (user) => {      
       const action = createUser(user);
       dispatch(action);
     },
   };
 }
 
-export default connect(null,mapDispatchToProps)(CreateUser);
+export default connect(mapStateToProps,mapDispatchToProps)(CreateUser);

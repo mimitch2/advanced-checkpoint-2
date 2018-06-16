@@ -2,6 +2,8 @@
 
 
 export function loadUsers() {
+  // console.log("loadUsers");
+  
   return function (dispatch) {
     dispatch({
       type: "LOAD_USERS"
@@ -43,7 +45,7 @@ export function usersLoaded(users) {
 // }
   
 export function createUser(user) {
-  // console.log(user);
+  console.log(user);
   
   return function (dispatch) {
     fetch("/user", {
@@ -51,7 +53,7 @@ export function createUser(user) {
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(user)
     }).then(() => {
-      dispatch(usersLoaded());
+      dispatch(loadUsers());
     });
   };
 }

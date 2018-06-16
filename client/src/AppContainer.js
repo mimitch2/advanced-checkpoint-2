@@ -1,24 +1,21 @@
 
 import App from "./App";
 import { connect } from "react-redux";
-import {/* loadMyMovieList */} from "./actions";
+import {loadUsers} from "./actions";
 
 function mapStateToProps(state) {
-  return "Hello";
-  // {
-  //  /*  searchResults: state.searchResults,
-  //   myMovieList: state.myMovieList */
-  // };
+  return {
+    users: state.users  
+  };
 }
   
 function mapDispatchToProps(dispatch) {
-  return "hello";
-  // {
-  //   /* loadMyMovieList */: () => {
-  //     const action = /* loadMyMovieList() */;
-  //   dispatch(action);
-  //   },
-  // };
+  return {
+    loadUsers: () => {
+      const action = loadUsers();
+      dispatch(action);
+    },
+  };
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

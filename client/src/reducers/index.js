@@ -1,9 +1,9 @@
 import {combineReducers} from "redux";
 
 function users(state = [], action) {
-  // if (action.type === /* "SEARCH_RESULTS_LOADED" */) {
-  //   return action.value;
-  // }
+  if (action.type === "USERS_LOADED") {
+    return action.value;
+  }
   return state;
 }
 
