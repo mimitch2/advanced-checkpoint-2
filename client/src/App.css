@@ -2,23 +2,30 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+
+.create-user-main {
+  margin-left: 10px;
+  width: 400px;
+  /* padding: 10px; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  background-color: pink;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+label, input {
+  margin-top: 6px;
+  margin-left: 8px;
+  /* padding: 10px; */
+  width: 200px;
+  /* height: 10px; */
 }
 
-.App-intro {
-  font-size: large;
+select, #submit {
+  margin-left: 8px;
+  width: max-content;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+#submit {
+  margin-top: 20px;
 }
