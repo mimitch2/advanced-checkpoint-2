@@ -4,7 +4,7 @@ import {createStore, applyMiddleware, compose} from "redux";
 import thunk from "redux-thunk";
 
 
-console.log(state);
+// console.log(state);
 
 const composeEnhancers =
  typeof window === "object" &&
