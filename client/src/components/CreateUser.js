@@ -46,7 +46,7 @@ class CreateUser extends Component {
     return (
       <div className="create-user">
         <div className="heading-div">
-          <h2 className="h2">CREATE USER</h2>
+          <h1 className="h2">CREATE USER</h1>
         </div>
         <div className="create-user-main">
           {/* <form action=""> */}
