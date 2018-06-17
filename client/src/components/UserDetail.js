@@ -2,9 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const UserDetail = (props) => {
-  console.log(props);
-
-
   const userId = props.match.params.id;
   const user = props.users.find(u => u.id == userId) || {};
   
@@ -19,7 +16,8 @@ const UserDetail = (props) => {
 };
 
 UserDetail.propTypes = {
-  prop: PropTypes.array,
+  users: PropTypes.array,
+  match: PropTypes.object
 };
 
 export default UserDetail;
