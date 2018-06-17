@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "../App.css";
 import { Link } from "react-router-dom";
 
-class CreateUser extends Component {
+class UpdateUser extends Component {
   constructor() {
     super();
     this.state = {
@@ -19,12 +19,9 @@ class CreateUser extends Component {
   }
 
   handleSubmit = () => {
-    // console.log(this.props.users[this.props.users.length - 1]);
-    
     const newId = this.props.users[this.props.users.length - 1].id;
 
-    this.props.createUser({
-      id: Number(newId) + 1,
+    this.props.updateUser({
       first_name: this.state.firstName,
       last_name: this.state.lastName,
       email: this.state.email,
@@ -46,7 +43,7 @@ class CreateUser extends Component {
     return (
       <div className="create-user">
         <div className="heading-div">
-          <h2 className="h2">CREATE USER</h2>
+          <h2 className="h2">UPDATE USER</h2>
         </div>
         <div className="create-user-main">
           {/* <form action=""> */}
@@ -75,9 +72,9 @@ class CreateUser extends Component {
   }
 }
 
-CreateUser.propTypes = {
+UpdateUser.propTypes = {
   users: PropTypes.array,
   createUser: PropTypes.func
 };
 
-export default CreateUser;
+export default UpdateUser;

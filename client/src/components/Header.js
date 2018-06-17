@@ -9,14 +9,24 @@ const style = {
     backgroundColor: "grey",
     color: "white",
     display: "flex",
-    alignItems: "center"
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: "26px"
   },
   ul: {
     listStyleType: "none",
-    display: "flex"
+    display: "flex",
+    paddingLeft: "0px"
+  },
+  link: {
+    textDecoration: "none",
+    color: "white"
   },
   li: {
-    marginLeft: "10px"
+    marginRight: "14px"
+  },
+  liTwo: {
+    marginLeft: "14px"
   }
 };
 
@@ -24,12 +34,12 @@ const Header = () => {
   return (
     <header className="header" style={style.root}>
       <nav>
-        <ul style={style.ul}>
-          <Link to={"/"}>
+        <ul style={style.ul} >
+          <Link to={"/"} style={style.link}>
             <li style={style.li}>Users</li>
           </Link>
-          <Link to={"/user"}>
-            <li style={style.li}>Create User</li>
+          <Link to={"/user"} style={style.link}>
+            <li style={style.liTwo}>Create User</li>
           </Link>
         </ul>
       </nav>
