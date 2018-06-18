@@ -42,7 +42,6 @@ const style = {
   icon: {
     fontSize: "30px",
     marginRight: "12px",
-    // color: "white"
   }
 };
 

@@ -1,13 +1,4 @@
 const User = require( "../models/UsersModel.js");
-// let users = []
-
-// const updateData = () => {
-//   Foo.find({}).exec().then(arr => {
-//     foos = arr;
-//   });
-// };
-
-// updateData();//**********INITIAL UPDATE 
 
 module.exports.list = function list(req, res) {
   User.find({}).exec().then(arr => {
@@ -34,8 +25,8 @@ module.exports.create = function create(req, res) {
 module.exports.update = function update(req, res) {
   const newUser = req.body;
   const id = req.params.id;
-  User.findOneAndUpdate({id}, newUser, (err,user) => {
-    user.save(function (err) {
+  User.findOneAndUpdate({id}, newUser, (err, user) => {
+    user.save((err) => {
       if (err) {
         console.error("ERROR!");
       }

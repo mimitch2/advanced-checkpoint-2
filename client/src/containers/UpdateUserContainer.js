@@ -11,8 +11,6 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     updateUser: (id, user) => {  
-      console.log(id);
-       
       const action = updateUser(id, user);
       dispatch(action);
     },

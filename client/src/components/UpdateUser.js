@@ -38,7 +38,7 @@ class UpdateUser extends Component {
     return (
       <div className="create-user">
         <div className="heading-div">
-          <h2 className="h2">UPDATE USER</h2>
+          <h1 className="h2">UPDATE USER</h1>
         </div>
         <div className="create-user-main">
           {/* <form action=""> */}
