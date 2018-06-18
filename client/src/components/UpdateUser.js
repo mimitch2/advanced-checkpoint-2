@@ -4,14 +4,19 @@ import "../App.css";
 import { Link } from "react-router-dom";
 
 class UpdateUser extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    const userId = this.props.match.params.id;
+    const user = this.props.users.find(u => u.id == userId) || {};
     this.state = {
-      firstName: "",
-      lastName: "",
-      email: "",
-      gender: "Male"
+      firstName: user.first_name,
+      lastName: user.last_name,
+      email: user.email,
+      gender: user.gender,
+      id: this.props.match.params.id,
+      ip: user.ip_address
     };
+    
   }
 
   handleChange = (e) => {
@@ -19,27 +24,17 @@ class UpdateUser extends Component {
   }
 
   handleSubmit = () => {
-    const newId = this.props.users[this.props.users.length - 1].id;
-
-    this.props.updateUser({
+    this.props.updateUser(this.state.id, {
+      id: this.state.id,
       first_name: this.state.firstName,
       last_name: this.state.lastName,
       email: this.state.email,
       gender: this.state.gender,
-      ip_address: "100.100.10.10"
+      ip_address: this.state.ip
     });
-    this.setState({
-      firstName: "",
-      lastName: "",
-      email: "",
-      gender: "Male"
-    });
-    
   }
 
   render() {
-    // console.log(this.props.users);
-    
     return (
       <div className="create-user">
         <div className="heading-div">
@@ -74,7 +69,9 @@ class UpdateUser extends Component {
 
 UpdateUser.propTypes = {
   users: PropTypes.array,
-  createUser: PropTypes.func
+  updateUser: PropTypes.func,
+  match: PropTypes.object
+
 };
 
 export default UpdateUser;

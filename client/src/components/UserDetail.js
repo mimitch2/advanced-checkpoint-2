@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const style = {
   root: {
@@ -27,23 +28,25 @@ const style = {
     fontWeight: "bold"
   },
   edit: {
-    fontSize: "26px",
+    fontSize: "18px",
     marginLeft: "16px",
+    marginTop: "-20px",
     color: "#49ce49", 
     cursor: "pointer"
   }
 };
 
-const handleEdit = (e) => {
-  console.log(e.target.id);
-  
-  // props.deleteUser(e.target.id);
-};
+
 
 const UserDetail = (props) => {
   const userId = props.match.params.id;
   const user = props.users.find(u => u.id == userId) || {};
   
+  
+  const handleEdit = (e) => {
+    props.showUser(e.target.id);
+  };
+
   return (
     <div style={style.root}>
       <h1 style={style.h1}>USER DETAIL</h1>
@@ -51,13 +54,16 @@ const UserDetail = (props) => {
       <div className="users-show-card" style={style.card}>
         <h2 style={{textAlign: "center"}} className="user-detail-name">
           {user.first_name} {user.last_name} 
-          <i className="fas fa-edit" style={style.edit} 
-            onClick={(e) => handleEdit(e)} id={user.id} />
+          <Link to={"/update_user/" + user.id} style={style.link}> 
+            <i className="fas fa-edit" style={style.edit} 
+              onClick={(e) => handleEdit(e)} id={user.id} />
+          </Link>
         </h2>
         
         <p className="user-detail-email"> <span style={style.key}>email:&nbsp;&nbsp;</span>{user.email}</p>
         <p className="user-detail-gender"><span style={style.key}>gender:&nbsp;&nbsp;</span> {user.gender}</p>
         <p className="user-detail-ip"><span style={style.key}>ip address:&nbsp;&nbsp;</span>{user.ip_address}</p>
+        <p className="user-detail-id"><span style={style.key}>user id:&nbsp;&nbsp;</span>{user.id}</p>
       </div>
     </div>
   );

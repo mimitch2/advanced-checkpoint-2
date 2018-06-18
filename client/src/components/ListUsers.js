@@ -69,7 +69,6 @@ const ListUsers = (props) => {
                 id={user.id}>
                 <i className="fas fa-user link" style={style.icon} />
                 {user.first_name} {user.last_name}  
-               
               </h3> 
             </Link>
             <i className="fas fa-times" style={style.cancel} 

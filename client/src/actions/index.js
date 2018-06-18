@@ -40,11 +40,27 @@ export function createUser(user) {
     });
   };
 }
+
+
       
 export function deleteUser(id) {
   return function (dispatch) {
     fetch("/user/" + id, {
       method: "DELETE"
+    }).then(res => res.json())
+        .then(() => {
+          dispatch(loadUsers());
+        });
+  };
+}
+
+      
+export function updateUser(id, user) {
+  return function (dispatch) {
+    fetch("/user/" + id, {
+      method: "PUT",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(user)
     }).then(res => res.json())
         .then(() => {
           dispatch(loadUsers());

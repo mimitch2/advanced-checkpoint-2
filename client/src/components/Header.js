@@ -12,7 +12,7 @@ const style = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    fontSize: "26px"
+    fontSize: "20px"
   },
   ul: {
     listStyleType: "none",
@@ -39,7 +39,7 @@ const Header = () => {
           <Link to={"/"} style={style.link} >
             <li style={style.li} className="link">Users</li>
           </Link>
-          <Link to={"/user"} style={style.link}>
+          <Link to={"/new_user"} style={style.link}>
             <li style={style.liTwo} className="link">Create User</li>
           </Link>
         </ul>

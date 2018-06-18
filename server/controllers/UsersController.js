@@ -32,8 +32,20 @@ module.exports.create = function create(req, res) {
 };
 
 module.exports.update = function update(req, res) {
-  return res.json({id: req.params.id});
+  const newUser = req.body;
+  const id = req.params.id;
+  User.findOneAndUpdate({id}, newUser, (err,user) => {
+    user.save(function (err) {
+      if (err) {
+        console.error("ERROR!");
+      }
+    });
+  });
+  User.find({}).exec().then(arr => {
+    return res.json(arr);
+  });
 };
+
 
 module.exports.remove = function remove(req, res) {  
   User.remove({id: req.params.id}).then(function (item) {

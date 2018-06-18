@@ -10,8 +10,10 @@ function mapStateToProps(state) {
   
 function mapDispatchToProps(dispatch) {
   return {
-    updateUser: (user) => {      
-      const action = updateUser(user);
+    updateUser: (id, user) => {  
+      console.log(id);
+       
+      const action = updateUser(id, user);
       dispatch(action);
     },
   };

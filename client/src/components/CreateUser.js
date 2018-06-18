@@ -10,34 +10,41 @@ class CreateUser extends Component {
       firstName: "",
       lastName: "",
       email: "",
-      gender: "Male"
+      gender: "Male",
+      properLink: "/new_user"
     };
   }
+
 
   handleChange = (e) => {
     this.setState({[e.currentTarget.id]: e.currentTarget.value});
   }
 
   handleSubmit = () => {
-    // console.log(this.props.users[this.props.users.length - 1]);
+    if (this.state.firstName && this.state.lastName &&
+    this.state.email) {
+      this.setState({properLink: "/"});
+      setTimeout(() => {
+        const newId = this.props.users[this.props.users.length - 1].id;
+        this.props.createUser({
+          id: Number(newId) + 1,
+          first_name: this.state.firstName,
+          last_name: this.state.lastName,
+          email: this.state.email,
+          gender: this.state.gender,
+          ip_address: "100.100.10.10"
+        });
+        this.setState({
+          firstName: "",
+          lastName: "",
+          email: "",
+          gender: "Male",
+        });
+      }, 300);
     
-    const newId = this.props.users[this.props.users.length - 1].id;
-
-    this.props.createUser({
-      id: Number(newId) + 1,
-      first_name: this.state.firstName,
-      last_name: this.state.lastName,
-      email: this.state.email,
-      gender: this.state.gender,
-      ip_address: "100.100.10.10"
-    });
-    this.setState({
-      firstName: "",
-      lastName: "",
-      email: "",
-      gender: "Male"
-    });
-    
+    } else {
+      alert("Please fill in all fields before submitting");
+    }
   }
 
   render() {
